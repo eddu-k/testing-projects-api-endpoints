@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Project API</title>
+</head>
+<body>
+    <h2>Create New Project</h2>
+    <form id="projectForm">
+        <p>
+            <label>Name:</label><br>
+            <input type="text" id="name" required>
+        </p>
+        <p>
+            <label>Description:</label><br>
+            <textarea id="description" required></textarea>
+        </p>
+        <p>
+            <label>Status:</label><br>
+            <select id="status">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+        </p>
+        <button type="submit">Create Project</button>
+    </form>
+
+    <script>
+        document.getElementById('projectForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const data = {
+                name: document.getElementById('name').value,
+                description: document.getElementById('description').value,
+                status: document.getElementById('status').value
+            };
+            
+            try {
+                const response = await fetch('http://localhost:3000/projects', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                alert(JSON.stringify(result, null, 2));
+                
+                if (result.success) {
+                    document.getElementById('projectForm').reset();
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>

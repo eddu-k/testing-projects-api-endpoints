@@ -1,0 +1,30 @@
+[
+    {
+        "id": 2,
+        "name": "Project Beta",
+        "description": "This is the second project.",
+        "status": "inactive",
+        "startDate": "2025-02-01"
+    },
+    {
+        "id": 4,
+        "name": "My New Project",
+        "description": "This is a test project",
+        "status": "active",
+        "startDate": "2025-05-31"
+    },
+    {
+        "id": 5,
+        "name": "Project tester",
+        "description": "testing description",
+        "status": "active",
+        "startDate": "2025-05-31"
+    },
+    {
+        "id": 6,
+        "name": "Postman Test Project",
+        "description": "Created using Postman",
+        "status": "active",
+        "startDate": "2025-05-31"
+    }
+]
